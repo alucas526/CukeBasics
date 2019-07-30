@@ -1,9 +1,11 @@
 package Steps;
 
-import cucumber.api.PendingException;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+
+import java.util.List;
 
 public class LoginStep {
   @Given("^User navigates to the login page$")
@@ -11,9 +13,11 @@ public class LoginStep {
     System.out.println("User sees the login page.");
   }
 
-  @And("^User enters the username as \"([^\"]*)\" and the password as \"([^\"]*)\"$")
-  public void userEntersTheUsernameAsAndThePasswordAs(String username, String password) throws Throwable {
-    System.out.println("Username is " + username + " and password is " + password);
+  @And("^User enters the following for login$")
+  public void userEntersTheFollowingForLogin(DataTable table) {
+    List<List<String>> data = table.raw();
+    System.out.println("The value is " + data.get(0).get(0));
+    System.out.println("The value is " + data.get(0).get(1));
   }
 
   @And("^User clicks the Login button$")

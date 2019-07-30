@@ -4,6 +4,8 @@ Feature: LoginFeature
 
   Scenario: Login with the correct username and password
     Given User navigates to the login page
-    And User enters the username as "admin" and the password as "adminpassword"
+    And User enters the following for login
+      | Username | Password      |
+      | admin    | adminpassword |
     And User clicks the Login button
     Then User should see the userform page
