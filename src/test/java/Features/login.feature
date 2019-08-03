@@ -5,7 +5,9 @@ Feature: LoginFeature
   Scenario: Login with the correct username and password
     Given User navigates to the login page
     And User enters the following for login
-      | Username | Password      |
-      | admin    | adminpassword |
+      | username  | password      |
+#      | admin     | adminpassword |
+#      | guest     | guestpassword |
+#      | superuser | o3lmn#4jdieu  |
     And User clicks the Login button
     Then User should see the userform page
