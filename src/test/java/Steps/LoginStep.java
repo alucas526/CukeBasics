@@ -11,6 +11,7 @@ import java.util.List;
 public class LoginStep {
   @Given("^User navigates to the login page$")
   public void userNavigatesToTheLoginPage() {
+
     System.out.println("User sees the login page.");
   }
 
@@ -40,12 +41,13 @@ public class LoginStep {
 
   @Then("^User should see the userform page$")
   public void userShouldSeeTheUserformPage() {
+
     System.out.println("User sees the userform page.");
   }
 
   public class User {
-    public String username;
-    public String password;
+    private String username;
+    private String password;
 
     public User(String userName, String passWord) {
       username = userName;
