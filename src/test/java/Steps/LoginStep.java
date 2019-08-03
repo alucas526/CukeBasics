@@ -12,7 +12,7 @@ public class LoginStep {
   @Given("^User navigates to the login page$")
   public void userNavigatesToTheLoginPage() {
 
-    System.out.println("User sees the login page.");
+    System.out.println("User visits the login page.\n");
   }
 
   @And("^User enters the following for login$")
@@ -36,13 +36,18 @@ public class LoginStep {
 
   @And("^User clicks the Login button$")
   public void userClicksTheLoginButton() {
-    System.out.println("User clicks the login button.");
+    System.out.println("User clicks the login button.\n");
   }
 
   @Then("^User should see the userform page$")
   public void userShouldSeeTheUserformPage() {
 
-    System.out.println("User sees the userform page.");
+    System.out.println("User sees the userform page.\n");
+  }
+
+  @And("^User enters ([^\"]*) and ([^\"]*)$")
+  public void userEntersUsernameAndPassword(String username, String password) {
+    System.out.println("The username is " + username + " and the password is " + password + ".");
   }
 
   public class User {
