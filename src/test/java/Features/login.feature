@@ -1,3 +1,5 @@
+# filename: Features/login.feature
+
 Feature: LoginFeature
   This feature deals with the login functionality of the application. The application in question can be found
   at http://executeautomation.com/demosite/Login.html
