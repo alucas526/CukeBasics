@@ -6,18 +6,22 @@ Feature: LoginFeature
 
   Scenario: Login with the correct username and password
     Given User navigates to the login page
+    And User enters email address as Email:admin
     And User enters the following for login
       | username | password |
       | admin     | adminpassword |
 #      | guest     | guestpassword |
 #      | superuser | o3lmn#4jdieu  |
     And User clicks the Login button
+    And User verifies the number of digits in their salary of 500000 dollars
     Then User should see the userform page
 
   Scenario Outline: Login with the correct username and password using Scenario Outline
     Given User navigates to the login page
+    And User enters email address as Email:admin
     And User enters <username> and <password>
     And User clicks the Login button
+    And User verifies the number of digits in their salary of 5000 dollars
     Then User should see the userform page
 
     Examples:

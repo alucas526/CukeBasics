@@ -3,7 +3,11 @@
 package Steps;
 
 import Base.BaseUtil;
+import Transformation.EmailTransform;
+import Transformation.SalaryCountTransform;
+import com.sun.org.apache.xerces.internal.impl.xs.SchemaSymbols;
 import cucumber.api.DataTable;
+import cucumber.api.Transform;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -24,6 +28,11 @@ public class LoginStep extends BaseUtil {
 
     System.out.println("Running the test with " + base.StepInfo);
     System.out.println("User visits the login page.\n");
+  }
+
+  @And("^User enters email address as Email:([^\"]*)$")
+  public void userEntersEmailAddressAsEmailAdmin(@Transform(EmailTransform.class) String email) {
+    System.out.println("The email address is " + email);
   }
 
   @And("^User enters the following for login$")
@@ -55,6 +64,11 @@ public class LoginStep extends BaseUtil {
   @And("^User enters ([^\"]*) and ([^\"]*)$")
   public void userEntersUsernameAndPassword(String username, String password) {
     System.out.println("The username is " + username + " and the password is " + password + ".");
+  }
+
+  @And("^User verifies the number of digits in their salary of (\\d+) dollars$")
+  public void userVerifiesTheNumberOfDigitsInTheirSalaryOfDollars(@Transform(SalaryCountTransform.class) int salary) {
+    System.out.println("User has a " + salary + "-digit salary.");
   }
 
   public class User {
