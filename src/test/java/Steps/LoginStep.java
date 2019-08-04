@@ -25,8 +25,8 @@ public class LoginStep extends BaseUtil {
   @Given("^User navigates to the login page$")
   public void userNavigatesToTheLoginPage() {
 
-    System.out.println("Running the test with " + base.StepInfo);
     System.out.println("User visits the login page.\n");
+    base.Driver.navigate().to("http://executeautomation.com/demosite/Login.html");
   }
 
   @And("^User enters email address as Email:([^\"]*)$")
