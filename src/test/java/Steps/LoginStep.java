@@ -2,6 +2,7 @@
 
 package Steps;
 
+import Base.BaseUtil;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -10,22 +11,26 @@ import cucumber.api.java.en.Then;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginStep {
+public class LoginStep extends BaseUtil {
+
+  private BaseUtil base;
+
+  public LoginStep(BaseUtil base) {
+    this.base = base;
+  }
+
   @Given("^User navigates to the login page$")
   public void userNavigatesToTheLoginPage() {
 
+    System.out.println("Running the test with " + base.StepInfo);
     System.out.println("User visits the login page.\n");
   }
 
   @And("^User enters the following for login$")
   public void userEntersTheFollowingForLogin(DataTable table) {
-    // List<List<String>> data = table.raw();
-
-    // System.out.println("The value is " + data.get(0).get(0));
-    // System.out.println("The value is " + data.get(0).get(1));
-
     // Create an Array List
     List<User> users = new ArrayList<User>();
+
     // Store all of the users
     users = table.asList(User.class);
 
