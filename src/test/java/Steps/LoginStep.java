@@ -5,7 +5,6 @@ package Steps;
 import Base.BaseUtil;
 import Transformation.EmailTransform;
 import Transformation.SalaryCountTransform;
-import com.sun.org.apache.xerces.internal.impl.xs.SchemaSymbols;
 import cucumber.api.DataTable;
 import cucumber.api.Transform;
 import cucumber.api.java.en.And;
