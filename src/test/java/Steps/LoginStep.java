@@ -10,6 +10,11 @@ import cucumber.api.Transform;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +26,18 @@ public class LoginStep extends BaseUtil {
   public LoginStep(BaseUtil base) {
     this.base = base;
   }
+
+  Boolean isDisplayed(By locator, Integer timeout) {
+    try {
+      WebDriverWait wait = new WebDriverWait(base.Driver, timeout);
+      wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    } catch (org.openqa.selenium.TimeoutException exception) {
+      return false;
+    }
+    return true;
+  }
+
+
 
   @Given("^User navigates to the login page$")
   public void userNavigatesToTheLoginPage() {
@@ -43,7 +60,9 @@ public class LoginStep extends BaseUtil {
     users = table.asList(User.class);
 
     for (User user: users) {
+      base.Driver.findElement(By.name("UserName")).sendKeys(user.username);
       System.out.println("The username is " + user.username);
+      base.Driver.findElement(By.name("Password")).sendKeys(user.password);
       System.out.println("The password is " + user.password);
     }
 
@@ -51,6 +70,7 @@ public class LoginStep extends BaseUtil {
 
   @And("^User clicks the Login button$")
   public void userClicksTheLoginButton() {
+    base.Driver.findElement(By.name("Login")).submit();
     System.out.println("User clicks the login button.\n");
   }
 
@@ -58,6 +78,8 @@ public class LoginStep extends BaseUtil {
   public void userShouldSeeTheUserformPage() {
 
     System.out.println("User sees the userform page.\n");
+    isDisplayed(By.id("Initial"), 10);
+    assertTrue("Initial field is not displayed.", base.Driver.findElement(By.id("Initial")).isDisplayed());
   }
 
   @And("^User enters ([^\"]*) and ([^\"]*)$")

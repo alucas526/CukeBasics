@@ -10,8 +10,6 @@ Feature: LoginFeature
     And User enters the following for login
       | username | password |
       | admin     | adminpassword |
-#      | guest     | guestpassword |
-#      | superuser | o3lmn#4jdieu  |
     And User clicks the Login button
     And User verifies the number of digits in their salary of 500000 dollars
     Then User should see the userform page
