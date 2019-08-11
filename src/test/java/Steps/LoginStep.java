@@ -3,6 +3,7 @@
 package Steps;
 
 import Base.BaseUtil;
+import Pages.LoginPage;
 import Transformation.EmailTransform;
 import Transformation.SalaryCountTransform;
 import cucumber.api.DataTable;
@@ -58,20 +59,17 @@ public class LoginStep extends BaseUtil {
 
     // Store all of the users
     users = table.asList(User.class);
-
+    LoginPage page = new LoginPage(base.Driver);
     for (User user: users) {
-      base.Driver.findElement(By.name("UserName")).sendKeys(user.username);
-      System.out.println("The username is " + user.username);
-      base.Driver.findElement(By.name("Password")).sendKeys(user.password);
-      System.out.println("The password is " + user.password);
+      page.login(user.username, user.password);
     }
 
   }
 
   @And("^User clicks the Login button$")
   public void userClicksTheLoginButton() {
-    base.Driver.findElement(By.name("Login")).submit();
-    System.out.println("User clicks the login button.\n");
+    LoginPage page = new LoginPage(base.Driver);
+    page.clickLogin();
   }
 
   @Then("^User should see the userform page$")
