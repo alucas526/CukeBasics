@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="12" configfailurepolicy="skip">
+    <listeners>
+        <listener class-name="Runner.NGTestListener" />
+    </listeners>
+    <test name="Complete Test Run">
+        <classes>
+            <class name="Runner.TestRunner" />
+        </classes>
+    </test>
+</suite>
