@@ -90,6 +90,13 @@ public class LoginStep extends BaseUtil {
     System.out.println("User has a " + salary + "-digit salary.");
   }
 
+  @Then("^User should see the wrong info on the userform page$")
+  public void userShouldSeeTheWrongInfoOnTheUserformPage() {
+    System.out.println("User sees the userform page.\n");
+    isDisplayed(By.id("Initial"), 10);
+    assertTrue("Initial field is not displayed.", base.Driver.findElement(By.id("Intial")).isDisplayed());
+  }
+
   public class User {
     private String username;
     private String password;
