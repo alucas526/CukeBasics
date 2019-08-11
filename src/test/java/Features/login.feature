@@ -14,16 +14,16 @@ Feature: LoginFeature
     And User verifies the number of digits in their salary of 500000 dollars
     Then User should see the userform page
 
-  Scenario Outline: Login with the correct username and password using Scenario Outline
-    Given User navigates to the login page
-    And User enters email address as Email:admin
-    And User enters <username> and <password>
-    And User clicks the Login button
-    And User verifies the number of digits in their salary of 5000 dollars
-    Then User should see the userform page
-
-    Examples:
-      | username | password      |
-      | admin    | adminpassword |
-      | admin    | password      |
-      | admin    | admin         |
+#  Scenario Outline: Login with the correct username and password using Scenario Outline
+#    Given User navigates to the login page
+#    And User enters email address as Email:admin
+#    And User enters <username> and <password>
+#    And User clicks the Login button
+#    And User verifies the number of digits in their salary of 5000 dollars
+#    Then User should see the userform page
+#
+#    Examples:
+#      | username | password      |
+#      | admin    | adminpassword |
+#      | admin    | password      |
+#      | admin    | admin         |
